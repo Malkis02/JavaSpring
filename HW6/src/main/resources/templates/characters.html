@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty Characters</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .character-card {
+            background-color: #1f2833;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .character-card:hover {
+            background-color: #45a29e;
+        }
+
+        .character-image {
+            max-width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .character-details {
+            margin-top: 20px;
+        }
+
+        .character-details p {
+            margin: 5px 0;
+        }
+
+        .character-details label {
+            font-weight: bold;
+        }
+
+        .character-details a {
+            color: #66fcf1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .character-details a:hover {
+            color: #45a29e;
+        }
+
+        a {
+             text-decoration: none;
+             display: inline-block;
+             padding: 8px 16px;
+        }
+
+        a:hover {
+             background-color: #45a29e;
+             color: black;
+        }
+
+        .previous {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        .next {
+            background-color: #1f2833;
+            color: white;
+        }
+
+        .round {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Rick and Morty Characters</h1>
+    <div th:each="character : ${characters}" class="character-card">
+        <a th:href="@{'/' + ${character.id}}">
+            <img th:src="${character.image}" alt="Character Image" class="character-image">
+        </a>
+        <div class="character-details">
+            <a th:href="@{/{id}(id=${character.id})}"><p><label>Name:</label> <span
+                    th:text="${character.name}"></span></p></a>
+            <p><label>Status:</label> <span th:text="${character.status}"></span></p>
+            <p><label>Species:</label> <span th:text="${character.species}"></span></p>
+            <p><label>Type:</label> <span th:text="${character.type}"></span></p>
+            <p><label>Gender:</label> <span th:text="${character.gender}"></span></p>
+            <p><label>Created:</label> <span th:text="${character.created}"></span></p>
+        </div>
+    </div>
+    <div>
+        <a th:href="@{/prev}" class="previous round">&#8249;</a>
+        <a th:href="@{/next}" class="next round">&#8250;</a>
+    </div>
+</div>
+</body>
+</html>

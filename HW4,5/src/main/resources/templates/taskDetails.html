@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<h1>Task Details</h1>
+<p>ID: <span th:text="${task.id}"></span></p>
+<p>Name: <span th:text="${task.taskName}"></span></p>
+<p>Description: <span th:text="${task.taskDescription}"></span></p>
+<p>Data Create <span th:text="${task.dateTaskCreate}"></span></p>
+<p>Status: <span th:text="${task.taskStatus}"></span></p>
+<a href="/">Back to Tasks</a>
+</body>
+</html>

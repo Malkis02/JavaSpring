@@ -1,0 +1,3 @@
+character:
+  api:
+    url: https://rickandmortyapi.com/api/character
