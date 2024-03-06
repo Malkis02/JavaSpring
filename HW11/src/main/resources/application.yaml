@@ -1,0 +1,18 @@
+character:
+  api:
+    url: https://rickandmortyapi.com/api/character
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: env, info, health
+#         include: '*'
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+     web:
+       exposure:
+         include: metrics, prometheus, health

@@ -1,0 +1,19 @@
+server:
+  port:
+    8086
+spring:
+  application:
+    name: api-gateway
+routes:
+  - id: resource-server
+    uri: http://localhost:8081/
+    predicates:
+      - Path=/finger/**
+  - id: auth-server
+    uri: http://localhost:8079/
+    predicates:
+      - Path=/**
+  - id: client
+    uri: http://localhost:8080/
+    predicates:
+      - Path=/**
